@@ -2,6 +2,7 @@ from openai import OpenAI
 import requests
 import ProductAccess
 
+# disabled lol
 client = OpenAI(api_key="sk-proj-YTL8INj0jCJUYdyGDd9MT3BlbkFJTAAGNwLu1HPdzVUYVKYH")
 
 def CreateImage(Item, desc):
