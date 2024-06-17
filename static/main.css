@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    /* background: url("https://www.theredbadgeproject.com/responsive/wp-content/uploads/2021/04/wrinkled-paper-bag-texture-background-PGVQ5K3.jpg"); */
+}
+.SearchResultBox{
+    border-color: black;
+    backdrop-filter: blur(3px) brightness(1.3);
+    border-style: solid;
+    display: flex;
+    border-radius: 12px;
+    margin-bottom: 5px;
+}
+.SearchResultImage{
+    width: 80px;
+    height: 80px;
+    object-fit:cover;
+    border-radius: 10px 0px 0px 10px;
+}
+.SearchResultName{
+    font-size: larger;
+}
+.SearchResultBarcode{
+    color: gray;
+    font-size: smaller;
+    font-size: smaller;
+}
+
+.SearchResultText{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+
+.SearchBar{
+    border-color: transparent;
+    background: none;
+    height: 30px;
+    margin-bottom: -1px;
+    width: 89%;
+}
+
+#inputForm{
+    height: 30px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.SearchResultAisle{
+    font-size: xx-large;
+    margin-left: 0px;
+    margin-right: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.SearchResultAisleText{
+    font-size: small;
+    margin-left: auto;
+    margin-right: 1px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.map{
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+.map img{
+    width: 100%;
+    top: auto;
+    bottom: 0px;
+}

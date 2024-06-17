@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/main.css">
+    <title>Shopping App</title>
+
+    <!-- 
+    this shit is cool
+    https://jsfiddle.net/7hed6uxL/2/ 
+    -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div style="display: flex; margin-bottom: 30px;">
+        <img style="width: 50px; height: 50px; object-fit: cover;" src="/static/Images/Logo.png" alt="">
+        <h1 style="margin: auto auto auto 15px;">Shopping App</h1>
+        <div style="margin: auto 15px auto auto;">
+            <div style="font-size: larger;">Brighton</div>
+            <div style="color: gray;">Foodland</div>
+        </div>
+    </div>
+    <form id="inputForm">
+        <img style="height: 40px; padding: 0;" src="/static/Images/SearchIcon.png" alt="">
+        <input class="SearchBar" type="text" id="inputData" name="input_data" placeholder="Search...."
+            autocomplete="off">
+    </form>
+    <div id="output">
+        <!-- Results here -->
+        <button onclick="ResultClicked()" class="SearchResultBox"><img class="SearchResultImage" id="SearchDataImg' + index + '" src="" alt="">
+            <div class="SearchResultText"><strong class="SearchResultName" id="SearchDataName' + index + '"></strong>
+                <div class="SearchResultBarcode" id="SearchDataBarcode' + index + '">123456789012</div>
+                <div class="SearchResultDescription" id="SearchDataDesc' + index + '">Ripe and sweet bananas.</div>
+            </div>
+            <div class="SearchResultAisleText" id="AisleText' + index + '"></div>
+            <div class="SearchResultAisle" id="SearchDataAisle' + index + '"></div>
+        </button>
+    </div>
+
+    <div class="map">
+        <img src="/static/Images/Map.png" draggable="false">
+    </div>
+
+
+    <script src="/static/main.js"></script>
+    <!-- <script src="/static/zoom.js"></script> -->
+</body>
+
+</html>

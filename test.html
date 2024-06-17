@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoomable and Pannable Element</title>
+    <style>
+        .zoomable {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            overflow: hidden;
+            position: relative;
+            cursor: grab;
+            touch-action: none;
+            /* Prevent default touch actions */
+        }
+
+        .zoomable img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.2s ease;
+        }
+
+        .zoomable:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
