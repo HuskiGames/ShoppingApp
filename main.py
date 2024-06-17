@@ -7,7 +7,6 @@ import ProductAccess
 def update_listbox(name, index, D = 0):
     global words
     products = ProductAccess.GetProducts()
-    return products
     search_term = name.lower()
     if search_term:
         # filtered_words = [word for word in Products.list if  word[0].lower().startswith(search_term)]
