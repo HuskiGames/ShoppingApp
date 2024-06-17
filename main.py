@@ -5,9 +5,9 @@ app = Flask(__name__)
 import ProductAccess 
 
 def update_listbox(name, index, D = 0):
-    return ""
     global words
     products = ProductAccess.GetProducts()
+    return products
     search_term = name.lower()
     if search_term:
         # filtered_words = [word for word in Products.list if  word[0].lower().startswith(search_term)]
@@ -17,17 +17,17 @@ def update_listbox(name, index, D = 0):
                 for product in products:
                     if(word.lower() in product[0].lower()):
                         filtered_words.append(product)
-                        
         for product in products:
             if(product[2].lower().startswith(search_term.lower())):
                 filtered_words.append(product)
-
         if len(filtered_words) > index:
             print(filtered_words[index][D])
             return filtered_words[index][D] 
         else:
-            print("Nothing")
             return ""
+    else:
+        return "0"
+
             
 
 @app.route('/')
