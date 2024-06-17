@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
-import ProductAccess 
+import static.ProductAccess as ProductAccess 
 
 def update_listbox(name, index, D = 0):
     global words
