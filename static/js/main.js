@@ -14,7 +14,6 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             url: '/submit',
-            
             data: $('#inputForm').serialize(),
             success: function (response) {
 
