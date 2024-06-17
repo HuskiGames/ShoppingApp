@@ -5,6 +5,7 @@ app = Flask(__name__)
 import ProductAccess 
 
 def update_listbox(name, index, D = 0):
+    return ""
     global words
     products = ProductAccess.GetProducts()
     search_term = name.lower()
