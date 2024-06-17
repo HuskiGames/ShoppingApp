@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-
+import os
 app = Flask(__name__)
 
 import static.ProductAccess as ProductAccess 
@@ -28,7 +28,8 @@ def update_listbox(name, index, D = 0):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
+
 
 @app.route('/submit', methods=['POST'])
 def submit():

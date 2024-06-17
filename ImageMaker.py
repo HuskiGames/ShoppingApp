@@ -1,6 +1,6 @@
 from openai import OpenAI
 import requests
-import ProductAccess
+import static.ProductAccess as ProductAccess
 
 client = OpenAI(api_key="sk-proj-YTL8INj0jCJUYdyGDd9MT3BlbkFJTAAGNwLu1HPdzVUYVKYH")
 
