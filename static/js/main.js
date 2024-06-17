@@ -85,55 +85,55 @@ $(document).ready(function () {
 
                 try{
                     if (response.Search_Data_Img_1 == "") {
-                        document.getElementById("SearchDataImg1").setAttribute("src", "/static/images/MissingImage.jpg")
+                        document.getElementById("SearchDataImg1").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
-                        document.getElementById("SearchDataImg1").setAttribute("src", "/static/images/" + response.Search_Data_Img_1)
+                        document.getElementById("SearchDataImg1").setAttribute("src", "/static/Images/" + response.Search_Data_Img_1)
                     }
                 } catch {}
 
                 try{
                     if (response.Search_Data_Img_1 == "") {
-                        document.getElementById("SearchDataImg1").setAttribute("src", "/static/images/MissingImage.jpg")
+                        document.getElementById("SearchDataImg1").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
-                        document.getElementById("SearchDataImg1").setAttribute("src", "/static/images/" + response.Search_Data_Img_1)
+                        document.getElementById("SearchDataImg1").setAttribute("src", "/static/Images/" + response.Search_Data_Img_1)
                     }
                 } catch {}
 
                 try{
                     if (response.Search_Data_Img_2 == "") {
-                        document.getElementById("SearchDataImg2").setAttribute("src", "/static/images/MissingImage.jpg")
+                        document.getElementById("SearchDataImg2").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
-                        document.getElementById("SearchDataImg2").setAttribute("src", "/static/images/" + response.Search_Data_Img_2)
+                        document.getElementById("SearchDataImg2").setAttribute("src", "/static/Images/" + response.Search_Data_Img_2)
                     }
                 } catch {}
 
                 try{
                     if (response.Search_Data_Img_3 == "") {
-                        document.getElementById("SearchDataImg3").setAttribute("src", "/static/images/MissingImage.jpg")
+                        document.getElementById("SearchDataImg3").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
-                        document.getElementById("SearchDataImg3").setAttribute("src", "/static/images/" + response.Search_Data_Img_3)
+                        document.getElementById("SearchDataImg3").setAttribute("src", "/static/Images/" + response.Search_Data_Img_3)
                     }
                 } catch {}
 
                 try{
                     if (response.Search_Data_Img_4 == "") {
-                        document.getElementById("SearchDataImg4").setAttribute("src", "/static/images/MissingImage.jpg")
+                        document.getElementById("SearchDataImg4").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
-                        document.getElementById("SearchDataImg4").setAttribute("src", "/static/images/" + response.Search_Data_Img_4)
+                        document.getElementById("SearchDataImg4").setAttribute("src", "/static/Images/" + response.Search_Data_Img_4)
                     }
                 } catch {}
 
                 try{
                     if (response.Search_Data_Img_5 == "") {
-                        document.getElementById("SearchDataImg5").setAttribute("src", "/static/images/MissingImage.jpg")
+                        document.getElementById("SearchDataImg5").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
-                        document.getElementById("SearchDataImg5").setAttribute("src", "/static/images/" + response.Search_Data_Img_5)
+                        document.getElementById("SearchDataImg5").setAttribute("src", "/static/Images/" + response.Search_Data_Img_5)
                     }
                 } catch {}
             }
