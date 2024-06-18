@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Element</title>
+    <style>
+        body {
+            height: 4000px; /* Just to make sure we have enough scrollable content */
+        }
+        .target-element {
+            margin-top: 1500px; /* Positioning the target element somewhere in the middle */
+        }
+    </style>
+</head>
+<body>
+    <h1>Scroll to Element Example</h1>
+    <div class="target-element" id="target-element">
+        This is the element to scroll to.
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // The element you want to bring to the top
+            var targetElement = document.getElementById("target-element");
+
+            // Scroll the page so that the target element is at the top
+            targetElement.scrollIntoView({
+                behavior: "smooth", // Optional: for smooth scrolling
+                block: "start"
+            });
+        });
+    </script>
+</body>
+</html>

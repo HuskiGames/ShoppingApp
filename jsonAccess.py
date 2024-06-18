@@ -1,6 +1,8 @@
 import json
 import os
 
+# [name, description, img, quick location name (Aisle), quick location spot (7), x, y]
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def SetProducts(list, filename = os.path.join(dir_path, "static/json", "Products.json")):
@@ -11,5 +13,3 @@ def GetProducts(filename = os.path.join(dir_path, "static/json", "Products.json"
     with open(filename, 'r') as file:
         list = json.load(file)
     return list
-
-# print(GetProducts())

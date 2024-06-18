@@ -1,21 +1,46 @@
 
 function SearchVisibility(index, NameResponse) {
     if (NameResponse != "" && NameResponse != null) {
-        document.getElementById("output").innerHTML += '<div class="SearchResultBox"><img class="SearchResultImage" id="SearchDataImg' + index + '" src="" alt=""><div class="SearchResultText"><strong class="SearchResultName" id="SearchDataName' + index + '"></strong><div class="SearchResultBarcode" id="SearchDataBarcode' + index + '">123456789012</div><div class="SearchResultDescription" id="SearchDataDesc' + index + '">Ripe and sweet bananas.</div></div><div class="SearchResultAisleText" id="AisleText' + index + '"></div><div class="SearchResultAisle" id="SearchDataAisle' + index + '"></div></div>'
+        document.getElementById("output").innerHTML += '<button onclick="ResultClicked(' + index + ')" class="SearchResultBox"><img class="SearchResultImage" id="SearchDataImg' + index + '" src="" alt=""><div class="SearchResultText"><strong class="SearchResultName" id="SearchDataName' + index + '"></strong><div class="SearchResultBarcode" id="SearchDataBarcode' + index + '">123456789012</div><div class="SearchResultDescription" id="SearchDataDesc' + index + '">Ripe and sweet bananas.</div></div><div class="SearchResultAisleText" id="AisleText' + index + '"></div><div class="SearchResultAisle" id="SearchDataAisle' + index + '"></div></button>'
     }
 }
 
-function ResultClicked() {
-    console.log("clicked")
+var Search_Data_Names = [0,0,0,0,0]
+
+function ResultClicked(index) {
+    alert(Search_Data_Names[index - 1])
 }
+
+$(function () {
+    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    $("html, body").css({ "width": w, "height": h });
+});
 
 function onFocusFunction() {
-    console.log(document.body.scrollHeight)
+    var element = document.getElementById('inputForm');
+    var headerOffset = 80;
+    var elementPosition = element.getBoundingClientRect().top;
+    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+    });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+$(document).ready(function () {
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            alert((Search_Data_Names[0])
+        )
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     var inputField = document.getElementById("inputData");
-    inputField.addEventListener("focus", onFocusFunction);
+    inputField.addEventListener("input", onFocusFunction);
 });
 
 $(document).ready(function () {
@@ -33,23 +58,24 @@ $(document).ready(function () {
                 SearchVisibility(4, response.Search_Data_Name_4)
                 SearchVisibility(5, response.Search_Data_Name_5)
 
-                $('#SearchDataName1').text(response.Search_Data_Name_1);
-                $('#SearchDataName2').text(response.Search_Data_Name_2);
-                $('#SearchDataName3').text(response.Search_Data_Name_3);
-                $('#SearchDataName4').text(response.Search_Data_Name_4);
-                $('#SearchDataName5').text(response.Search_Data_Name_5);
+                Search_Data_Names[0] = response.Search_Data_Name_1
+                Search_Data_Names[1] = response.Search_Data_Name_2
+                Search_Data_Names[2] = response.Search_Data_Name_3
+                Search_Data_Names[3] = response.Search_Data_Name_4
+                Search_Data_Names[4] = response.Search_Data_Name_5
+
+
+                $('#SearchDataName1').text(Search_Data_Names[0]);
+                $('#SearchDataName2').text(Search_Data_Names[1]);
+                $('#SearchDataName3').text(Search_Data_Names[2]);
+                $('#SearchDataName4').text(Search_Data_Names[3]);
+                $('#SearchDataName5').text(Search_Data_Names[4]);
 
                 $('#SearchDataDesc1').text(response.Search_Data_Desc_1);
                 $('#SearchDataDesc2').text(response.Search_Data_Desc_2);
                 $('#SearchDataDesc3').text(response.Search_Data_Desc_3);
                 $('#SearchDataDesc4').text(response.Search_Data_Desc_4);
                 $('#SearchDataDesc5').text(response.Search_Data_Desc_5);
-
-                $('#SearchDataBarcode1').text(response.Search_Data_Barcode_1);
-                $('#SearchDataBarcode2').text(response.Search_Data_Barcode_2);
-                $('#SearchDataBarcode3').text(response.Search_Data_Barcode_3);
-                $('#SearchDataBarcode4').text(response.Search_Data_Barcode_4);
-                $('#SearchDataBarcode5').text(response.Search_Data_Barcode_5);
 
                 try {
                     $('#SearchDataAisle1').text(response.Search_Data_Aisle_1);
@@ -92,59 +118,59 @@ $(document).ready(function () {
                     else { document.getElementById("AisleText5").innerHTML = ""; }
                 } catch { }
 
-                try{
+                try {
                     if (response.Search_Data_Img_1 == "") {
                         document.getElementById("SearchDataImg1").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
                         document.getElementById("SearchDataImg1").setAttribute("src", "/static/Images/" + response.Search_Data_Img_1)
                     }
-                } catch {}
+                } catch { }
 
-                try{
+                try {
                     if (response.Search_Data_Img_1 == "") {
                         document.getElementById("SearchDataImg1").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
                         document.getElementById("SearchDataImg1").setAttribute("src", "/static/Images/" + response.Search_Data_Img_1)
                     }
-                } catch {}
+                } catch { }
 
-                try{
+                try {
                     if (response.Search_Data_Img_2 == "") {
                         document.getElementById("SearchDataImg2").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
                         document.getElementById("SearchDataImg2").setAttribute("src", "/static/Images/" + response.Search_Data_Img_2)
                     }
-                } catch {}
+                } catch { }
 
-                try{
+                try {
                     if (response.Search_Data_Img_3 == "") {
                         document.getElementById("SearchDataImg3").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
                         document.getElementById("SearchDataImg3").setAttribute("src", "/static/Images/" + response.Search_Data_Img_3)
                     }
-                } catch {}
+                } catch { }
 
-                try{
+                try {
                     if (response.Search_Data_Img_4 == "") {
                         document.getElementById("SearchDataImg4").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
                         document.getElementById("SearchDataImg4").setAttribute("src", "/static/Images/" + response.Search_Data_Img_4)
                     }
-                } catch {}
+                } catch { }
 
-                try{
+                try {
                     if (response.Search_Data_Img_5 == "") {
                         document.getElementById("SearchDataImg5").setAttribute("src", "/static/Images/MissingImage.jpg")
                     }
                     else {
                         document.getElementById("SearchDataImg5").setAttribute("src", "/static/Images/" + response.Search_Data_Img_5)
                     }
-                } catch {}
+                } catch { }
             }
         });
     });
