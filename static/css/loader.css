@@ -1,0 +1,26 @@
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    z-index: 1000;
+    background: #041F1E;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 70%;
+
+    animation: cssAnimation 0.5s 1s forwards;
+}
+
+svg path,
+svg rect {
+    fill: #376f1c;
+}
+
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    100% {
+        opacity: 0;
+        margin-top: -10000px;
+    }
+}

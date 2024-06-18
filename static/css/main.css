@@ -11,31 +11,42 @@ html {
     background: var(--Background);
 }
 
-.header{
+body {
+    margin: 0px;
+}
+
+.header {
     background: var(--Background3);
-    margin: -10px;
-    padding: 10px;
+    margin: -5px;
+    padding: 15px 10px 10px 10px;
     position: fixed;
     z-index: 10;
     width: 100%;
     height: 50px;
     box-shadow: 0px 0px 10px black;
+    user-select: none;
 }
 
-.background{
+.background {
     width: 100vw;
     position: fixed;
     z-index: -100;
+    margin-top: -20px;
 }
 
 .SearchResultBox {
-    backdrop-filter: blur(3px) brightness(1.3);
+    backdrop-filter: blur(2px);
     background: var(--Background2);
     display: flex;
     text-align: left;
     border-radius: 12px;
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 5px;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .SearchResultImage {
@@ -80,6 +91,10 @@ html {
 }
 
 .SearchArea {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    backdrop-filter: blur(2px);
     background: var(--Background2);
     padding: 3px 10px 3px 10px;
     border-radius: 35px;
@@ -104,16 +119,29 @@ html {
 }
 
 .map {
-    z-index: -1;
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
+    position: absolute;
+    top: 1000px;
+    margin: 20px;
+    margin-bottom: 100px;
 }
 
 .map img {
-    width: 100%;
-    top: auto;
-    bottom: 0px;
+    backdrop-filter: blur(2px);
+    background: var(--Background2);
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.map .label {
+    color: var(--Background2);
+    font-size: 50px;
+    margin: 30px;
+    margin-top: 0px;
+    text-align: center;
+    padding-top: 150px;
 }
 
 .Description {
