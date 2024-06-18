@@ -13,7 +13,7 @@ function ResultClicked(index) {
 
 $(function () {
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    $("html, body").css({ "width": w, "height": h });
+    $("html, body").css({"height": h });
 });
 
 function onFocusFunction() {
