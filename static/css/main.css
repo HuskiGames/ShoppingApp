@@ -12,7 +12,7 @@ html {
 
 body{
     background: url(/static/Images/Background.png);
-    background-size:contain;
+    background-size: 100%;
 }
 
 .SearchResultBox {
