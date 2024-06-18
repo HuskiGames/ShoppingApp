@@ -9,6 +9,15 @@ function ResultClicked() {
     console.log("clicked")
 }
 
+function onFocusFunction() {
+    console.log(document.body.scrollHeight)
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var inputField = document.getElementById("inputData");
+    inputField.addEventListener("focus", onFocusFunction);
+});
+
 $(document).ready(function () {
     $('#inputData').on('input', function () {
         $.ajax({

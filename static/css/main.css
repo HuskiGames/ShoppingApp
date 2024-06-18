@@ -1,74 +1,115 @@
-body{
-    margin: 0;
-    /* background: url("https://www.theredbadgeproject.com/responsive/wp-content/uploads/2021/04/wrinkled-paper-bag-texture-background-PGVQ5K3.jpg"); */
+html {
+    --Text: #041F1E;
+    --Text2: #1E2D2F;
+    --blend: #F7DBA7;
+    --Background2: #e1f6d1bc;
+    --Background: #46921e;
+
+    font-family: "Bebas Neue";
+
+    background: var(--Background);
 }
-.SearchResultBox{
-    border-color: black;
+
+body{
+    background: url(/static/Images/Background.png);
+    background-size:contain;
+}
+
+.SearchResultBox {
     backdrop-filter: blur(3px) brightness(1.3);
-    border-style: solid;
+    background: var(--Background2);
     display: flex;
     border-radius: 12px;
     margin-bottom: 5px;
 }
-.SearchResultImage{
-    width: 80px;
-    height: 80px;
-    object-fit:cover;
-    border-radius: 10px 0px 0px 10px;
-}
-.SearchResultName{
-    font-size: larger;
-}
-.SearchResultBarcode{
-    color: gray;
-    font-size: smaller;
-    font-size: smaller;
+
+.SearchResultImage {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.SearchResultText{
+.SearchResultName {
+    font-size: larger;
+    color: var(--Text);
+}
+
+.SearchResultBarcode {
+    color: var(--blend);
+    font-size: 0px;
+}
+
+.SearchResultText {
+    color: var(--Text2);
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
-.SearchBar{
+.SearchBar {
     border-color: transparent;
     background: none;
-    height: 30px;
+    color: var(--Text);
+    height: auto;
     margin-bottom: -1px;
     width: 89%;
+    outline: none;
 }
 
-#inputForm{
-    height: 30px;
+#inputForm {
+    height: auto;
     display: flex;
     margin-bottom: 10px;
 }
 
-.SearchResultAisle{
+.SearchArea {
+    background: var(--Background2);
+    padding: 3px 10px 3px 10px;
+    border-radius: 35px;
+}
+
+.SearchResultAisle {
     font-size: xx-large;
     margin-left: 0px;
     margin-right: 15px;
+    color: var(--Text2);
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.SearchResultAisleText{
+.SearchResultAisleText {
     font-size: small;
+    color: var(--Text2);
     margin-left: auto;
     margin-right: 1px;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.map{
+.map {
     z-index: -1;
     position: fixed;
     width: 100%;
     bottom: 0px;
 }
-.map img{
+
+.map img {
     width: 100%;
     top: auto;
     bottom: 0px;
+}
+
+.Description {
+    color: var(--Background2);
+    font-size: 50px;
+    margin: 30px;
+    margin-top: 0px;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.Description strong {
+    color: var(--blend);
 }

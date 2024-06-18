@@ -25,7 +25,7 @@ def update_listbox(name, index, D = 0):
         else:
             return ""
     else:
-        return "0"
+        return ""
 
             
 
@@ -76,4 +76,5 @@ def submit():
          })
     
 if __name__ == '__main__':
-    app.run()
+    # app.run()
+    app.run(debug=True, host="0.0.0.0")
