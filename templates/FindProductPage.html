@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/loader.css">
     <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <title>Mapit</title>
 
 
@@ -76,17 +77,18 @@
         <!-- Results here -->
     </div>
 
-    <div class="map">
-        <strong class="label">
-            Map
-        </strong>
-        <img src="/static/Images/Map.png" draggable="false">
+
+    <div class="mapContainer">
+        <div id="map" class="map"></div>
+        <!-- <img src="/static/Images/Map.png" draggable="false"> -->
     </div>
 
-    <div style="height: 5000px;"></div>
+    <div style="height: 80vh;"></div>
 
     <script> function scrollWin() { window.scrollTo(0, 0); } </script>
-    <script src="/static/js/main.js"></script>
+    <script src="/static/js/FindProductPage.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/static/js/map.js"></script>
     <!-- <script src="/static/zoom.js"></script> -->
 </body>
 

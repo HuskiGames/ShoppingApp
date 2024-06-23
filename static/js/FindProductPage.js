@@ -8,8 +8,11 @@ function SearchVisibility(index, NameResponse) {
 var Search_Data_Names = [0,0,0,0,0]
 
 function ResultClicked(index) {
-    alert(Search_Data_Names[index - 1])
+    blur();
+    alert(Search_Data_Names[index - 1]);
 }
+
+onFocusFunction();
 
 $(function () {
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -45,9 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 $(document).ready(function () {
     $('#inputData').on('input', function () {
+
         $.ajax({
             type: 'POST',
-            url: '/submit',
+            url: '/Search',
             data: $('#inputForm').serialize(),
             success: function (response) {
 

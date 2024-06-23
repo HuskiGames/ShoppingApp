@@ -1,37 +1,17 @@
 from flask import Flask, request, jsonify, render_template
 import os
 app = Flask(__name__)
+from SearchBar import update_listbox
 
-import jsonAccess
-
-def update_listbox(name, index, D = 0):
-    global words
-    products = jsonAccess.GetProducts()
-    search_term = name.lower()
-    if search_term:
-        # filtered_words = [word for word in Products.list if  word[0].lower().startswith(search_term)]
-        filtered_words = []
-        for word in search_term.split():
-            if(len(word) > 0):
-                for product in products:
-                    if(word.lower() in product[0].lower()):
-                        filtered_words.append(product)
-        if len(filtered_words) > index:
-            print(filtered_words[index][D])
-            return filtered_words[index][D] 
-        else:
-            return ""
-    else:
-        return ""
 
             
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("FindProductPage.html")
 
 
-@app.route('/submit', methods=['POST'])
+@app.route('/Search', methods=['POST'])
 def submit():
     input_data = request.form['input_data']
     return jsonify(
@@ -68,4 +48,6 @@ def submit():
     
 if __name__ == '__main__':
     # app.run()
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port="4200")
+
+

@@ -1,6 +1,6 @@
 from openai import OpenAI
 import requests
-import ProductAccess
+import json
 
 # disabled lol
 client = OpenAI(api_key="sk-proj-YTL8INj0jCJUYdyGDd9MT3BlbkFJTAAGNwLu1HPdzVUYVKYH")
@@ -25,9 +25,9 @@ def CreateImage(Item, desc):
 count = 0
 
 while count < 90:
-    link = CreateImage(ProductAccess.GetProducts()[count][0], ProductAccess.GetProducts()[count][1])
+    link = CreateImage(json.GetProducts()[count][0], json.GetProducts()[count][1])
     print("Created " + link)
-    list = ProductAccess.GetProducts()
+    list = json.GetProducts()
     list[count][3] = link
-    ProductAccess.SetProducts(list)
+    json.SetProducts(list)
     count = count + 1
