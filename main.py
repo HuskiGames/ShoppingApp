@@ -48,6 +48,6 @@ def submit():
     
 if __name__ == '__main__':
     app.run()
-    # app.run(debug=True, host="0.0.0.0", port="4200")
+    # app.run(debug=True, host="0.0.0.0", port="4200", ssl_context='adhoc')
 
 

@@ -12,7 +12,6 @@ function ResultClicked(index) {
     alert(Search_Data_Names[index - 1]);
 }
 
-onFocusFunction();
 
 $(function () {
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);

@@ -1,7 +1,7 @@
 // Function to initialize the map
 function initializeMap(latitude, longitude) {
     // Initialize the map and set its view to the specified coordinates
-    var imageBounds = [[-35.029814, 138.535935], [-35.031489, 138.538885]]; // Example bounds
+    var imageBounds = [[-35.018468662418, 138.5747006715697], [-35.01919424949473, 138.57585035805033]]; // Example bounds
     var map = L.map('map', {attributionControl:false, zoomControl: false}).setView([latitude, longitude], 19);
 
     // Add a tile layer to the map (OpenStreetMap tiles)
@@ -9,16 +9,17 @@ function initializeMap(latitude, longitude) {
         maxZoom: 30, 
     }).addTo(map);
 
-    // L.tileLayer('map.png', { 
-    //     maxZoom: 30, 
-    // }).addTo(map);
+    L.tileLayer('', { 
+        maxZoom: 30, 
+    }).addTo(map);
 
 
-    L.imageOverlay('https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg', imageBounds).addTo(map);
+    // L.imageOverlay('https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg', imageBounds).addTo(map);
+    L.imageOverlay('static/Images/map2.png', imageBounds).addTo(map);
 
     // Add a marker to the map at the specified GPS coordinates
     L.marker([latitude, longitude]).addTo(map)
-        .bindPopup('Your Location')
+        .bindPopup('')
         .openPopup();
 }
 
@@ -30,18 +31,13 @@ if (navigator.geolocation) {
             // Success callback: get the coordinates and initialize the map
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            // initializeMap(latitude, longitude);
-            initializeMap(-35.030281, 138.536907);
+            initializeMap(latitude, longitude);
+            // initializeMap(-35.030281, 138.536907);
         },
         function(error) {
-            // Error callback: handle errors here
             console.error("Error getting location: " + error.message);
-            // Optionally initialize the map with a default location
-            initializeMap(37.7749, -122.4194); // Example: San Francisco
         }
     );
 } else {
-    // Geolocation is not available: initialize the map with a default location
     console.error("Geolocation is not supported by this browser.");
-    initializeMap(37.7749, -122.4194); // Example: San Francisco
 }

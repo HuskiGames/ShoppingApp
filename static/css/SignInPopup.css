@@ -1,0 +1,58 @@
+html {
+    --Text: #041F1E;
+    --Text2: #1E2D2F;
+    --blend: #F7DBA7;
+    --Background2: #e1f6d1bc;
+    --Background: #46921e;
+    --Background3: #376f1c;
+}
+
+.SignInPage {
+    position: fixed;
+    display: block;
+    overflow: auto;
+    width: 100vw;
+    height: 100vh !important;
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+}
+
+.SignInPageBlur {
+    position: fixed;
+    box-shadow: 0px 0px 10px black;
+    display: block;
+    overflow: auto;
+    padding: 5%;
+    width: 70vw;
+    height: 40vh !important;
+    margin: 15vh 10vw 15vh 10vw;
+    background: var(--Background3);
+    border-radius: 20px;
+    z-index: 1100;
+}
+
+.SignInPageTitle{
+    font-size: xx-large;
+    color: var(--Text);
+}
+
+.SignInPageInputFelid{
+    overflow: none;
+    display: flex;
+    margin: 0px;
+    padding: 10px;
+    font-size: larger;
+    height: 30px;
+
+    width: 90%;
+    border-radius: 3px;
+    border: none;
+    outline: none; 
+    box-shadow: none;
+    background: var(--blend);
+}
+
+.SignInPageInputLabel{
+    font-size: larger;
+    color: var(--Text);
+}

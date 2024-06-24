@@ -14,7 +14,6 @@ def update_listbox(name, index, D = 0):
                     if(word.lower() in product[0].lower()):
                         filtered_words.append(product)
         if len(filtered_words) > index:
-            print(filtered_words[index][D])
             return filtered_words[index][D] 
         else:
             return ""
