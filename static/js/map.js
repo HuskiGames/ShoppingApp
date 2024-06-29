@@ -49,7 +49,7 @@ function initializeMap() {
     }).addTo(map);
 
     // L.imageOverlay('https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg', imageBounds).addTo(map);
-    L.imageOverlay('static/Images/App/map.png', imageBounds).addTo(map);
+    L.imageOverlay('static/Images/App/Map.png', imageBounds).addTo(map);
 
     map.on('click', function (ev) {
         var latlng = map.mouseEventToLatLng(ev.originalEvent);
