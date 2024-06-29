@@ -12,8 +12,13 @@
 
 
     <!-- 
-    this shit is cool
+    notes and stuff
+
     https://jsfiddle.net/7hed6uxL/2/ 
+
+    git clone https://<token>@github.com/owner/repo.git
+
+    https://domoritz.github.io/leaflet-locatecontrol/demo/
     -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -53,28 +58,31 @@
 
 
 <body>
-    <!-- <form id="SignInPage" class="SignInPage">
+    <form id="SignInPage" class="SignInPage" onsubmit="return false;">
         <div class="SignInPageBlur">
             <strong class="SignInPageTitle">
                 Staff Sign in
             </strong>
             <br><br>
             <label class="SignInPageInputLabel" for="fUsername">First name:</label><br>
-            <input class="SignInPageInputFelid" type="text" name="fUsername"><br>
+            <input id="fUsername" class="SignInPageInputFelid" type="text" name="fUsername"><br>
             <label class="SignInPageInputLabel" for="fPassword">Last name:</label><br>
-            <input class="SignInPageInputFelid" type="text" name="fPassword">
-            <input type="submit" style="margin-top: 30px;" value="Submit">
+            <input id="fPassword" class="SignInPageInputFelid" type="text" name="fPassword">
+            <button onclick="SignInButton_Clicked()">Submit</button>
         </div>
-    </form> -->
+    </form>
 
     <img class="background" src="/static/Images/background.png" alt="">
 
     <div class="header" style="display: flex; margin-bottom: 30px;">
         <img style="width: 50px; object-fit: cover;" src="/static/Images/Logo.png" alt="">
         <h1 style="margin: auto auto auto 15px;">Mapit</h1>
+        <button>
+            <img class="UserIcon" src="/static/Images/App/UserIcon.png" alt="">
+        </button>
         <div style="margin: auto 15px auto auto;">
-            <div style="font-size: larger;">Shop</div>
-            <div style="color: gray;">Name</div>
+            <div style="font-size: larger;">shop</div>
+            <div style="color: gray;">name</div>
         </div>
     </div>
 
@@ -104,7 +112,11 @@
     <script src="/static/js/FindProductPage.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="/static/js/map.js"></script>
-    <!-- <script src="/static/zoom.js"></script> -->
+
+    <!-- real time location -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+    <script src="/static/js/L.Control.Locate.min.js" charset="utf-8"></script>
+
 </body>
 
 </html>

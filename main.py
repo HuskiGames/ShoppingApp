@@ -2,17 +2,25 @@ from flask import Flask, request, jsonify, render_template
 import os
 app = Flask(__name__)
 from SearchBar import update_listbox
+import Usersignin
 
-
-            
 
 @app.route('/')
 def index():
     return render_template("FindProductPage.html")
 
+@app.route('/Signin', methods=['POST'])
+def Signin():
+    Username = request.form['name']
+    Password = request.form['pass']
+    print(Username + "  " + Password)
+    return jsonify({
+        'SigninCorrect': Usersignin.SignIn(Username, Password),
+    })
+
 
 @app.route('/Search', methods=['POST'])
-def submit():
+def Search():
     input_data = request.form['input_data']
     return jsonify(
         {'Search_Data_Name_1': update_listbox(input_data, 0, 0),

@@ -1,6 +1,11 @@
 {
     "cSpell.words": [
-        "jsonify"
+        "fpass",
+        "jsonify",
+        "latlng",
+        "prevmarker",
+        "Signin",
+        "Usersignin"
     ],
     "liveServer.settings.https":   
     {

@@ -21,6 +21,6 @@ def downscale_images(input_folder, output_folder, scale_factor=0.3):
                 img_resized.save(os.path.join(output_folder, filename))
 
 if __name__ == "__main__":
-    input_folder = "ChatGPTImages"
-    output_folder = "static/Images"
+    input_folder = "downscalein"
+    output_folder = "downscaleout"
     downscale_images(input_folder, output_folder)

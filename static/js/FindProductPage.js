@@ -1,3 +1,13 @@
+if(window.innerHeight < window.innerWidth){
+    alert("To search for products please rotate your phone to portrait");
+}
+
+window.addEventListener("load", function () {
+    setTimeout(function(){
+        // This hides the address bar:
+        window.scrollTo(0, 1);
+    }, 0);
+});
 
 function SearchVisibility(index, NameResponse) {
     if (NameResponse != "" && NameResponse != null) {
