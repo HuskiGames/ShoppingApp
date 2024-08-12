@@ -58,16 +58,18 @@
 
 
 <body>
-    <form id="SignInPage" class="SignInPage" onsubmit="return false;">
+    <form id="SignInPage" class="SignInPage" SignInPageVisible="false" onsubmit="return false;">
         <div class="SignInPageBlur">
             <strong class="SignInPageTitle">
                 Staff Sign in
             </strong>
             <br><br>
             <label class="SignInPageInputLabel" for="fUsername">First name:</label><br>
-            <input id="fUsername" class="SignInPageInputFelid" type="text" name="fUsername"><br>
+            <input id="fUsername" value="admin" class="SignInPageInputFelid" type="text" name="fUsername"><br>
             <label class="SignInPageInputLabel" for="fPassword">Last name:</label><br>
-            <input id="fPassword" class="SignInPageInputFelid" type="text" name="fPassword">
+            <input id="fPassword" value="admin" class="SignInPageInputFelid" type="text" name="fPassword">
+            <label id="fErrors" class="SignInPageInputLabel" for="fErrors"></label><br>
+            <button onclick="ToggleSignInPage()">Close</button>
             <button onclick="SignInButton_Clicked()">Submit</button>
         </div>
     </form>
@@ -77,7 +79,7 @@
     <div class="header" style="display: flex; margin-bottom: 30px;">
         <img style="width: 50px; object-fit: cover;" src="/static/Images/Logo.png" alt="">
         <h1 style="margin: auto auto auto 15px;">Mapit</h1>
-        <button>
+        <button onclick="ToggleSignInPage()">
             <img class="UserIcon" src="/static/Images/App/UserIcon.png" alt="">
         </button>
         <div style="margin: auto 15px auto auto;">
@@ -109,9 +111,11 @@
     <div style="height: 80vh;"></div>
 
     <script> function scrollWin() { window.scrollTo(0, 0); } </script>
-    <script src="/static/js/FindProductPage.js"></script>
+    <script type="module" src="/static/js/FindProductPage.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="/static/js/map.js"></script>
+    <script src="/static/js/Leaflet.ImageOverlay.Rotate.js" charset="utf-8"></script>
+    <script type="module" src="/static/js/map.js"></script>
+    <script src="/static/js/Signin.js"></script>
 
     <!-- real time location -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />

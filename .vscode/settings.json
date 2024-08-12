@@ -1,10 +1,15 @@
 {
     "cSpell.words": [
+        "bottomleft",
+        "Foodland",
         "fpass",
         "jsonify",
         "latlng",
         "prevmarker",
         "Signin",
+        "topleft",
+        "topright",
+        "Totalchanges",
         "Usersignin"
     ],
     "liveServer.settings.https":   

@@ -177,6 +177,27 @@ body {
     right: 0px;
     background: none;
 }
+
+.SignInPageInputLabel{
+    color: var(--Text);
+}
+
+.SignInPage{
+    margin-top: 10000px;
+}
+
+.SignInPageErrorLabel{
+    color: rgb(255, 116, 116);
+}
+
+.ToggleSignInPageImg{
+    width: 20%;
+}
+
+.SignInPageVisible{
+    margin-top: 0px;
+}
+
 .UserIcon{
     height: 50%;
     margin-top: auto;

@@ -1,9 +1,19 @@
-if(window.innerHeight < window.innerWidth){
+var LocationAnchor = [0, 0]
+
+$.ajax({
+    type: 'POST',
+    url: '/GetShopData',
+    success: function (response) {
+        LocationAnchor = response.LocationAnchor.split(", ")
+    }
+})
+
+if (window.innerHeight < window.innerWidth) {
     alert("To search for products please rotate your phone to portrait");
 }
 
 window.addEventListener("load", function () {
-    setTimeout(function(){
+    setTimeout(function () {
         // This hides the address bar:
         window.scrollTo(0, 1);
     }, 0);
@@ -15,17 +25,52 @@ function SearchVisibility(index, NameResponse) {
     }
 }
 
-var Search_Data_Names = [0,0,0,0,0]
+function UpdateProduct(item, new_x, new_y) {
+    $.ajax({
+        type: 'POST',
+        url: '/UpdateLocation',
+        data: { index: Search_Data_Indexes[item], new_x: new_x, new_y: new_y},
+        success: function (response) {
+            alert(response.x + "  " + response.y)
+        }
+    })
+}
+
+function ProductSearched(item) {
+    alert(Search_Data_Indexes[item])
+    $.ajax({
+        type: 'POST',
+        url: '/GetLocation',
+        data: { index: Search_Data_Indexes[item] },
+        success: function (response) {
+            if (response.x == "0" && response.y == "0") {
+                UpdateProduct(item, LocationAnchor[0], LocationAnchor[1]);
+            }
+            else {
+
+                console.log(response.x.ToString())
+
+                const data = {
+                    x: response.x,
+                    y: response.y
+                };
+                localStorage.setItem('MarkerLocation', data);
+            }
+        }
+    })
+}
+
+var Search_Data_Names = [0, 0, 0, 0, 0]
+var Search_Data_Indexes = [0, 0, 0, 0, 0]
 
 function ResultClicked(index) {
-    blur();
-    alert(Search_Data_Names[index - 1]);
+    ProductSearched(index - 1)
 }
 
 
 $(function () {
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    $("html, body").css({"height": h });
+    $("html, body").css({ "height": h });
 });
 
 function onFocusFunction() {
@@ -44,8 +89,9 @@ $(document).ready(function () {
     $(window).keydown(function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
-            alert((Search_Data_Names[0])
-        )
+            if (document.getElementById("SignInPage").getAttribute("SignInPageVisible") == "false") {
+                ProductSearched(0)
+            }
         }
     });
 });
@@ -76,6 +122,12 @@ $(document).ready(function () {
                 Search_Data_Names[2] = response.Search_Data_Name_3
                 Search_Data_Names[3] = response.Search_Data_Name_4
                 Search_Data_Names[4] = response.Search_Data_Name_5
+
+                Search_Data_Indexes[0] = response.Search_Data_Index_1
+                Search_Data_Indexes[1] = response.Search_Data_Index_2
+                Search_Data_Indexes[2] = response.Search_Data_Index_3
+                Search_Data_Indexes[3] = response.Search_Data_Index_4
+                Search_Data_Indexes[4] = response.Search_Data_Index_5
 
 
                 $('#SearchDataName1').text(Search_Data_Names[0]);
