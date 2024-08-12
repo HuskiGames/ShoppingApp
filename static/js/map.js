@@ -1,6 +1,8 @@
 // Function to initialize the map
 // var imageBounds = [[-34.922321, 138.587503], [-34.934776, 138.617682]]; // Example bounds
 
+var map
+
 var MarkerImgFaded = L.icon({
     iconUrl: '/static/Images/App/MarkerImgFaded.png',  // Path to your red marker icon image
     iconSize: [20, 30],               // Size of the icon
@@ -19,16 +21,17 @@ var marker
 function initializeMap(topleft, topright, bottomleft, LocationAnchor) {
 
     // Initialize the map and set its view to the specified coordinates
-    var map = L.map('map', { attributionControl: false, zoomControl: false }).setView(LocationAnchor, 15);
+    map = L.map('map', {minZoom: 15, attributionControl: false, zoomSnap: 0.5 ,zoomControl: false }).setView(LocationAnchor, 15.25);
 
     prevmarker = L.marker(LocationAnchor, { icon: MarkerImgFaded }).addTo(map).openPopup();
     marker = L.marker(LocationAnchor, { icon: MarkerImg }).addTo(map).openPopup();
 
+    map.setMaxBounds(map.getBounds());
 
     // Add a tile layer to the map (OpenStreetMap tiles)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 30,
-    }).addTo(map);
+    // L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=uEw6K2g4MF3aMGRzDjul', {
+    //     maxZoom: 30,
+    // }).addTo(map);
 
     L.tileLayer('', {
         maxZoom: 30,
@@ -45,9 +48,13 @@ function initializeMap(topleft, topright, bottomleft, LocationAnchor) {
     // L.imageOverlay('static/Images/App/Map.png', imageBounds).addTo(map);
 
     map.on('click', function (ev) {
-        var latlng = map.mouseEventToLatLng(ev.originalEvent);
-        console.log(latlng.lat + ', ' + latlng.lng);
-        marker.setLatLng([latlng.lat, latlng.lng], { draggable: 'true' });
+        if (document.getElementById("AdminControls").hasAttribute("hidden") == false) {
+            var latlng = map.mouseEventToLatLng(ev.originalEvent);
+            console.log(latlng.lat + ', ' + latlng.lng);
+            localStorage.setItem('NewConfirmMarkerLocation_x', latlng.lat);
+            localStorage.setItem('NewConfirmMarkerLocation_y', latlng.lng);
+            marker.setLatLng([latlng.lat, latlng.lng], { draggable: 'true' });    
+        }
     });
 
 
@@ -114,10 +121,18 @@ if (navigator.geolocation) {
 
 
 function UpdateLocation() {
-    const data = JSON.parse(localStorage.getItem('data'));
-    // console.log(data);
-    // marker.setLatLng(data, { draggable: 'true' });
-    // prevmarker.setLatLng(data, { draggable: 'true' });
+    if (localStorage.getItem('Update Marker') > 0) {
+        localStorage.setItem('Update Marker', localStorage.getItem('Update Marker') - 1)
+
+        const x = JSON.parse(localStorage.getItem('MarkerLocation_x'));
+        const y = JSON.parse(localStorage.getItem('MarkerLocation_y'));
+
+        map.setView([x, y], 16);
+
+        console.log(x + " " + y);
+        marker.setLatLng([x, y], { draggable: 'true' });
+        prevmarker.setLatLng([x, y], { draggable: 'true' });    
+    }
 }
 
 setInterval(UpdateLocation, 100);

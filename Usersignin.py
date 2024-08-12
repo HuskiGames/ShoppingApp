@@ -6,7 +6,6 @@ def SignIn(name, password):
     NewToken = createToken()
     Users = jsonAccess.GetUsers()
     
-    
     if name == "admin" and password == "admin":                
         for i in range(len(Users)):
             if Users[i][0] == name and Users[i][1] == password:
@@ -25,10 +24,10 @@ def SignIn(name, password):
             
     jsonAccess.SetUsers(Users)
     
-    return jsonify({
-        'SignedIn': "True",
-        'Token': NewToken
-    })    
+    # return jsonify({
+    #     'SignedIn': "True",
+    #     'Token': NewToken
+    # })    
 
     
     return jsonify({

@@ -1,9 +1,10 @@
 {
     "Name": "Foodland",
-    "LocationAnchor": "-35.015828, 138.543267",
+    "LocationAnchor": "-35.015263149540154, 138.54515075683597",
     "topleft" : "-35.01210749019748, 138.54078948497775",
     "topright" : "-35.01184387235065, 138.54916334152225",
     "bottomleft" : "-35.0179551942765, 138.54122400283816",
+    "ZoomLevel" : "15",
     "usersFile" : "/json/Shop1/users.json",
     "ProductsFile" : "/json/Shop1/users.json"
 }

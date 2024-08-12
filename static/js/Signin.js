@@ -22,7 +22,7 @@ function SignInButton_Clicked() {
             if (response.SignedIn == "True") {
                 document.getElementById("SignInPage").setAttribute("SignInPageVisible", false);
                 document.getElementById("SignInPage").classList.remove("SignInPageVisible")
-
+                document.getElementById("AdminControls").removeAttribute("hidden")
                 window.localStorage.setItem("key", response.Token);
             }
             else {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="/static/css/SignInPopup.css" />
+    <link rel="icon" type="image/x-icon" href="/static/Images/App/Logo.png">
     <title>Mapit</title>
 
 
@@ -77,14 +78,14 @@
     <img class="background" src="/static/Images/background.png" alt="">
 
     <div class="header" style="display: flex; margin-bottom: 30px;">
-        <img style="width: 50px; object-fit: cover;" src="/static/Images/Logo.png" alt="">
+        <img style="width: 50px; object-fit: cover;" src="/static/Images/App/Logo.png" alt="">
         <h1 style="margin: auto auto auto 15px;">Mapit</h1>
-        <button onclick="ToggleSignInPage()">
+        <button style="background: none; border-width: 0;" onclick="ToggleSignInPage()">
             <img class="UserIcon" src="/static/Images/App/UserIcon.png" alt="">
         </button>
         <div style="margin: auto 15px auto auto;">
-            <div style="font-size: larger;">shop</div>
-            <div style="color: gray;">name</div>
+            <div style="font-size: larger;">Shop Name 1</div>
+            <div style="color: gray;">Shop Name 2</div>
         </div>
     </div>
 
@@ -106,6 +107,10 @@
     <div class="mapContainer">
         <div id="map" class="map"></div>
         <!-- <img src="/static/Images/Map.png" draggable="false"> -->
+    </div>
+    <div id="AdminControls" class="AdminControls" hidden>
+        <button id="CancelMapButton" class="MapButtons">Cancel</button>
+        <button id="ConfirmMapButton" class="MapButtons">Confirm</button>
     </div>
 
     <div style="height: 80vh;"></div>
