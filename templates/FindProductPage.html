@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/Horizontal scroller.css">
     <link rel="stylesheet" href="/static/css/loader.css">
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -17,7 +18,9 @@
 
     https://jsfiddle.net/7hed6uxL/2/ 
 
-    git clone https://<token>@github.com/owner/repo.git
+    git clone https://<token>@github.com/HuskiGames/ShoppingApp
+
+    <token> =https://github.com/settings/tokens?page=1
 
     https://domoritz.github.io/leaflet-locatecontrol/demo/
     -->
@@ -25,7 +28,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-    
+
 <div class="loader loader--style8" title="7">
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" width="80px" height="80px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
@@ -75,6 +78,7 @@
         </div>
     </form>
 
+
     <img class="background" src="/static/Images/background.png" alt="">
 
     <div class="header" style="display: flex; margin-bottom: 30px;">
@@ -83,15 +87,30 @@
         <button style="background: none; border-width: 0;" onclick="ToggleSignInPage()">
             <img class="UserIcon" src="/static/Images/App/UserIcon.png" alt="">
         </button>
+        <button id="ToggleHelpButton" style="background: none; border-width: 0;">
+            <img class="UserIcon" src="/static/Images/App/help.png" alt="">
+        </button>
         <div style="margin: auto 15px auto auto;">
             <div style="font-size: larger;">Shop Name 1</div>
             <div style="color: gray;">Shop Name 2</div>
         </div>
     </div>
+    
 
     <div class="Description">
         Search the
         <strong>STORE</strong>
+    </div>
+
+    <div id="HelpWindow" hidden>
+        <div class="wrapper scroll-x">
+            <ul class="items">
+                <li><img src="/static/Images/App/Help 1.png" style="width: 100%;"></li>
+                <li><img src="/static/Images/App/Help 2.png" style="width: 100%;"></li>
+                <li><img src="/static/Images/App/Help 3.png" style="width: 100%;"></li>
+                <li><img src="/static/Images/App/Help 4.png" style="width: 100%;"></li>
+            </ul>
+        </div>
     </div>
 
     <form id="inputForm" class="SearchArea">
@@ -99,10 +118,10 @@
         <input class="SearchBar" type="text" id="inputData" name="input_data" placeholder="Search...."
             autocomplete="off">
     </form>
+
     <div id="output">
         <!-- Results here -->
     </div>
-
 
     <div class="mapContainer">
         <div id="map" class="map"></div>
@@ -113,7 +132,7 @@
         <button id="ConfirmMapButton" class="MapButtons">Confirm</button>
     </div>
 
-    <div style="height: 80vh;"></div>
+    <div id="BottemSpace" style="height: 40vh;"></div>
 
     <script> function scrollWin() { window.scrollTo(0, 0); } </script>
     <script type="module" src="/static/js/FindProductPage.js"></script>
@@ -125,7 +144,6 @@
     <!-- real time location -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
     <script src="/static/js/L.Control.Locate.min.js" charset="utf-8"></script>
-
 </body>
 
 </html>

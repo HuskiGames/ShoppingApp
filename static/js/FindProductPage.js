@@ -21,6 +21,19 @@ window.addEventListener("load", function () {
     }, 0);
 });
 
+document.getElementById("HelpWindow").addEventListener("click", TogglehelpWindow)
+document.getElementById("ToggleHelpButton").addEventListener("click", TogglehelpWindow)
+function TogglehelpWindow() {
+    console.log(document.getElementById("HelpWindow").getAttribute("hidden"))
+    if (document.getElementById("HelpWindow").getAttribute("hidden") == null) {
+        document.getElementById("HelpWindow").setAttribute("hidden", "")
+    }
+    else {
+        document.getElementById("HelpWindow").removeAttribute("hidden", "")
+    }
+}
+
+
 function SearchVisibility(index, NameResponse) {
     if (NameResponse != "" && NameResponse != null) {
         var button = document.getElementById("output").innerHTML += '<button id="SearchResultBox' + index + '" class="SearchResultBox"><img class="SearchResultImage" id="SearchDataImg' + index + '" src="" alt=""><div class="SearchResultText"><strong class="SearchResultName" id="SearchDataName' + index + '"></strong><div class="SearchResultBarcode" id="SearchDataBarcode' + index + '">123456789012</div><div class="SearchResultDescription" id="SearchDataDesc' + index + '">Ripe and sweet bananas.</div></div><div class="SearchResultAisleText" id="AisleText' + index + '"></div><div class="SearchResultAisle" id="SearchDataAisle' + index + '"></div></button>'
@@ -49,7 +62,7 @@ function UpdateProduct(item, new_x, new_y) {
     $.ajax({
         type: 'POST',
         url: '/UpdateLocation',
-        data: { index: Search_Data_Indexes[item], new_x: new_x, new_y: new_y},
+        data: { index: Search_Data_Indexes[item], new_x: new_x, new_y: new_y },
         success: function (response) {
             ProductSearched(item)
             localStorage.setItem('Update Marker', 3)
@@ -62,7 +75,7 @@ function UpdateProduct(item, new_x, new_y) {
 function hideKeyboard(element) {
     element.attr('readonly', 'readonly'); // Force keyboard to hide on input field.
     element.attr('disabled', 'true'); // Force keyboard to hide on textarea field.
-    setTimeout(function() {
+    setTimeout(function () {
         element.blur();  //actually close the keyboard
         // Remove readonly attribute after keyboard is hidden.
         element.removeAttr('readonly');
@@ -71,19 +84,19 @@ function hideKeyboard(element) {
 }
 
 function ProductSearched(item) {
-    if(document.getElementById("SearchResultBox" + 1) != null){
+    if (document.getElementById("SearchResultBox" + 1) != null) {
         document.getElementById("SearchResultBox" + 1).setAttribute("class", "SearchResultBox")
     }
-    if(document.getElementById("SearchResultBox" + 2) != null){
+    if (document.getElementById("SearchResultBox" + 2) != null) {
         document.getElementById("SearchResultBox" + 2).setAttribute("class", "SearchResultBox")
     }
-    if(document.getElementById("SearchResultBox" + 3) != null){
+    if (document.getElementById("SearchResultBox" + 3) != null) {
         document.getElementById("SearchResultBox" + 3).setAttribute("class", "SearchResultBox")
     }
-    if(document.getElementById("SearchResultBox" + 4) != null){
+    if (document.getElementById("SearchResultBox" + 4) != null) {
         document.getElementById("SearchResultBox" + 4).setAttribute("class", "SearchResultBox")
     }
-    if(document.getElementById("SearchResultBox" + 5) != null){
+    if (document.getElementById("SearchResultBox" + 5) != null) {
         document.getElementById("SearchResultBox" + 5).setAttribute("class", "SearchResultBox")
     }
 
@@ -160,6 +173,19 @@ document.addEventListener("DOMContentLoaded", function () {
     inputField.addEventListener("input", onFocusFunction);
 });
 
+
+function AddSpace(event) {
+    document.getElementById("BottemSpace").style.height = "80vh"
+}
+function RemoveSpace(event) {
+    document.getElementById("BottemSpace").style.height = "30vh"
+}
+
+document.getElementById("inputData").addEventListener("focus", AddSpace);
+document.getElementById("inputData").addEventListener("blur", RemoveSpace);
+
+
+
 $(document).ready(function () {
     $('#inputData').on('input', function () {
 
@@ -178,43 +204,43 @@ $(document).ready(function () {
                 if (SearchVisibility(1, response.Search_Data_Name_1)) {
                     count = 1
                 }
-                if(SearchVisibility(2, response.Search_Data_Name_2)){
+                if (SearchVisibility(2, response.Search_Data_Name_2)) {
                     count = 2
                 }
-                if(SearchVisibility(3, response.Search_Data_Name_3)){
+                if (SearchVisibility(3, response.Search_Data_Name_3)) {
                     count = 3
                 }
-                if(SearchVisibility(4, response.Search_Data_Name_4)){
+                if (SearchVisibility(4, response.Search_Data_Name_4)) {
                     count = 4
                 }
-                if(SearchVisibility(5, response.Search_Data_Name_5)){
+                if (SearchVisibility(5, response.Search_Data_Name_5)) {
                     count = 5
                 }
 
-                if(count >= 1){
+                if (count >= 1) {
                     item = document.getElementById("SearchResultBox1")
                     item.addEventListener('click', ResultClicked)
-                    item.myParam = '1';        
+                    item.myParam = '1';
                 }
                 if (count >= 2) {
                     item = document.getElementById("SearchResultBox2")
                     item.addEventListener('click', ResultClicked)
-                    item.myParam = '2';    
+                    item.myParam = '2';
                 }
-                if(count >= 3){
+                if (count >= 3) {
                     item = document.getElementById("SearchResultBox3")
                     item.addEventListener('click', ResultClicked)
-                    item.myParam = '3';    
+                    item.myParam = '3';
                 }
-                if(count >= 4){
+                if (count >= 4) {
                     item = document.getElementById("SearchResultBox4")
                     item.addEventListener('click', ResultClicked)
-                    item.myParam = '4';    
+                    item.myParam = '4';
                 }
-                if(count >= 5){
+                if (count >= 5) {
                     item = document.getElementById("SearchResultBox5")
                     item.addEventListener('click', ResultClicked)
-                    item.myParam = '5';    
+                    item.myParam = '5';
                 }
 
                 Search_Data_Names[0] = response.Search_Data_Name_1

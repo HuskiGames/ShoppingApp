@@ -3,7 +3,7 @@ import requests
 import json
 
 # disabled lol
-client = OpenAI(api_key="sk-proj-YTL8INj0jCJUYdyGDd9MT3BlbkFJTAAGNwLu1HPdzVUYVKYH")
+client = OpenAI(api_key="sk-YaolcDuXEYVe5gmmTmZ6NOsXuiFwrZbCCAF4AnvnfbT3BlbkFJbotoHE4gyzi58_2Ozb8OMviXPPL4vl6QGCWeLWiGgA")
 
 def CreateImage(Item, desc):
     print("Creating " + Item)
@@ -22,12 +22,14 @@ def CreateImage(Item, desc):
     return Item.lower() + '.jpg'
 
 
-count = 0
+# count = 0
 
-while count < 90:
-    link = CreateImage(json.GetProducts()[count][0], json.GetProducts()[count][1])
-    print("Created " + link)
-    list = json.GetProducts()
-    list[count][3] = link
-    json.SetProducts(list)
-    count = count + 1
+CreateImage("Tiramisu", "Creamy, coffee-flavored Italian dessert.")
+
+# while count < 90:
+#     link = CreateImage(json.GetProducts()[count][0], json.GetProducts()[count][1])
+#     print("Created " + link)
+#     list = json.GetProducts()
+#     list[count][3] = link
+#     json.SetProducts(list)
+#     count = count + 1

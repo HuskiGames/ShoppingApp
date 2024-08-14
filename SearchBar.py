@@ -13,15 +13,15 @@ def update_listbox(name, index, D = 0,  id = False):
         return
     
     # reduces amount of things going into bubble sort
-    for word in search_term.split():
-        if(len(word) < 0):
-            return
-        
-        for i in range(len(products)):
-            if(word.lower() in products[i][0].lower()): # products[i][0] is the name
-                filtered_words.append(products[i])
-                filtered_Index.append(i)
-        
+    if(len(search_term) < 0):
+        return
+    
+    for i in range(len(products)):
+        if(search_term.lower() in products[i][0].lower()): # products[i][0] is the name
+            filtered_words.append(products[i])
+            filtered_Index.append(i)
+
+
     # bubble sort
     Totalchanges = 0;
     changes = 0;
@@ -31,7 +31,7 @@ def update_listbox(name, index, D = 0,  id = False):
         if(len(filtered_words) > 1): # checks if there are 2 items !impotent
             
             # Compares items 
-            if(filtered_words[i - 1][0].lower().find(word.lower()) > filtered_words[i][0].lower().find(word.lower())):
+            if(filtered_words[i - 1][0].lower().find(search_term.lower()) > filtered_words[i][0].lower().find(search_term.lower())):
                 changes += 1
                 Totalchanges += 1
                 tmp = filtered_words[i]
