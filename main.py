@@ -56,9 +56,6 @@ def UpdateLocation():
         'y': new_y,
     })
 
-    
-
-
 
 @app.route('/Search', methods=['POST'])
 def Search():
